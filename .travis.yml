@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+- lts/*
+services:
+- docker
+before_script:
+# Build the c3-flo image
+- docker build -t cbase/c3-flo:${TRAVIS_BUILD_NUMBER} .
+# Start the whole service
+- docker-compose up -d
+- docker-compose ps
+# Wait for runtime to be ready
+- until npx fbp-protocol-healthcheck ws://127.0.0.1:3569 || (( count++ >= 40 )); do echo "Waiting for runtime to be ready"; sleep 10; done
+- sleep 20
+deploy:
+  -
+    provider: script
+    script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}"
+    on:
+      branch: master
