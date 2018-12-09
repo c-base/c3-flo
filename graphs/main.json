@@ -12,9 +12,6 @@
     "clock": {
       "component": "c3-flo/Clock"
     },
-    "demodisplay": {
-      "component": "c-base/infodisplay"
-    },
     "farbgeber": {
       "component": "c3-flo/farbgeber"
     },
@@ -26,6 +23,18 @@
     },
     "visual-paging": {
       "component": "c3-flo/VisualPaging"
+    },
+    "north-display": {
+      "component": "c-base/infodisplay"
+    },
+    "east-display": {
+      "component": "c-base/infodisplay"
+    },
+    "south-display": {
+      "component": "c-base/infodisplay"
+    },
+    "west-display": {
+      "component": "c-base/infodisplay"
     }
   },
   "connections": [
@@ -99,7 +108,37 @@
         "port": "out"
       },
       "tgt": {
-        "process": "demodisplay",
+        "process": "north-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "east-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "south-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "west-display",
         "port": "open"
       }
     },
