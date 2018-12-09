@@ -9,6 +9,7 @@ services:
     image: cbase/c3-flo
     environment:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
+      INFOSCREENS_URL: 'http://localhost'
     ports:
       - '3569:3569'
     links:

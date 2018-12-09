@@ -33,13 +33,27 @@ leipzig.addMeasurement('lej_pressure', 'clima.pressure.lej', [
   topic: 'airportweather.PRESSURE',
 });
 
+// Configure c-base setup
+const station = new app.Dictionary('c-base', 'c-base');
+station.addMeasurement('announcement', 'visual-paging', [
+  {
+    units: 'Message',
+    format: 'string',
+  },
+], {
+  topic: 'visual-paging/original',
+});
+
 // Start the server
 const server = new app.Server({
   host: process.env.HOST || 'localhost',
   port: process.env.PORT || 8080,
   wss_port: process.env.WSS_PORT || 8082,
   broker: process.env.MSGFLO_BROKER || 'mqtt://localhost',
-  dictionaries: [leipzig],
+  dictionaries: [
+    leipzig,
+    station,
+  ],
   history: {
     host: process.env.INFLUX_HOST || 'localhost',
     db: process.env.INFLUX_DB || 'cbeam',
