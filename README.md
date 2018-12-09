@@ -1,4 +1,4 @@
-# c3-flo [![Build Status](https://travis-ci.org/c-base/c3-flo.svg?branch=master)](https://travis-ci.org/c-base/c3-flo) [![Docker Hub](https://img.shields.io/docker/pulls/cbase/c3-flo.svg)]
+# c3-flo [![Build Status](https://travis-ci.org/c-base/c3-flo.svg?branch=master)](https://travis-ci.org/c-base/c3-flo) [![Docker Hub](https://img.shields.io/docker/pulls/cbase/c3-flo.svg)](https://hub.docker.com/r/cbase/c3-flo/)
 
 [MsgFlo](https://msgflo.org) setup for rewiring the [c-base space station](https://c-base.org/) at [35C3](https://events.ccc.de/category/congress/35c3/).
 
