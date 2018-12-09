@@ -1,0 +1,24 @@
+{
+  "name": "c3-flo",
+  "version": "1.0.0",
+  "description": "MsgFlo setup for programming c-base at 35C3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/c-base/c3-flo.git"
+  },
+  "keywords": [
+    "noflo",
+    "msgflo",
+    "c-base"
+  ],
+  "author": "Henri Bergius <henri.bergius@iki.fi>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/c-base/c3-flo/issues"
+  },
+  "homepage": "https://github.com/c-base/c3-flo#readme"
+}
