@@ -24,6 +24,7 @@ services:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     links:
       - mqtt
+      - msgflo
     entrypoint: npm run foreign
     volumes:
       - ./components:/var/c3-flo/components
