@@ -9,6 +9,8 @@ This is a simplified version of the full [c-flo setup](https://github.com/c-base
 * Support for JavaScript components
 * Support for CoffeeScript components
 * Support for Python 3 components
+* [NASA OpenMCT](https://github.com/c-base/cbeam-telemetry-server) for logging and visualizing statistics
+* HTML-based info displays for showing statistics
 * docker-compose runnable environment
 
 ## Running with docker-compose
