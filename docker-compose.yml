@@ -41,4 +41,4 @@ services:
     ports:
       - '80:80'
     links:
-      - mqtt-infoscreens
+      - mqtt
