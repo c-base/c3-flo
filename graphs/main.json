@@ -7,7 +7,10 @@
   },
   "processes": {
     "airportweather": {
-      "component": "c-flo/AirportWeather"
+      "component": "c3-flo/AirportWeather"
+    },
+    "clock": {
+      "component": "c3-flo/Clock"
     }
   },
   "connections": [
@@ -16,6 +19,23 @@
       "tgt": {
         "process": "airportweather",
         "port": "icao"
+      }
+    },
+    {
+      "data": true,
+      "tgt": {
+        "process": "clock",
+        "port": "start"
+      }
+    },
+    {
+      "src": {
+        "process": "clock",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "airportweather",
+        "port": "fetch"
       }
     }
   ]

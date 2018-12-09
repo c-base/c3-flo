@@ -15,6 +15,10 @@ services:
       - '3569:3569'
     links:
       - mqtt
+    volumes:
+      - ./graphs:/var/c3-flo/graphs
+      - ./components:/var/c3-flo/components
+      - ./spec:/var/c3-flo/spec
   msgflo_foreign:
     image: cbase/c3-flo
     container_name: c3-flo-foreign
@@ -23,3 +27,5 @@ services:
     links:
       - mqtt
     entrypoint: npm run foreign
+    volumes:
+      - ./components:/var/c3-flo/components

@@ -7,7 +7,7 @@
     "eslint": "eslint components/*.js",
     "yamllint": "yamllint components/*.yml spec/*.yaml docker-compose.yml",
     "pretest": "npm run eslint && npm run yamllint",
-    "test": "fbp-spec --address ws://localhost:3569 spec/*.yaml",
+    "test": "fbp-spec --address ws://localhost:3569 spec/",
     "start": "msgflo --componentdir components --graph graphs/main.json --runtime-id=63412117-ed0a-4e0d-afc6-f1e88b52f127 --ping-interval=600 --host=localhost --wait-timeout 1200",
     "foreign": "msgflo-register --role demodisplay:components/infodisplay.yml"
   },

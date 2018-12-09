@@ -1,0 +1,11 @@
+name: 'Station time'
+topic: c3-flo/Clock
+cases:
+-
+  name: 'starting the clock'
+  assertion: 'should send the current time'
+  inputs:
+    start: true
+  expect:
+    out:
+      type: string
