@@ -1,11 +1,11 @@
 version: '2'
 services:
   mqtt:
-    image: ansi/mosquitto
+    image: toke/mosquitto
     container_name: c-beam
     ports:
+      - '1882:9001'
       - '1883:1883'
-    entrypoint: /usr/local/sbin/mosquitto
   msgflo:
     image: cbase/c3-flo
     container_name: c3-flo
