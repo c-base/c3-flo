@@ -29,3 +29,10 @@ services:
     entrypoint: npm run foreign
     volumes:
       - ./components:/var/c3-flo/components
+  announcer:
+    image: cbase/station-announcer
+    container_name: station-announcer
+    environment:
+      MSGFLO_BROKER: 'mqtt://mqtt:1883'
+    links:
+      - mqtt
