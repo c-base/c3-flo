@@ -12,6 +12,9 @@
     "clock": {
       "component": "c3-flo/Clock"
     },
+    "demodisplay": {
+      "component": "c-base/infodisplay"
+    },
     "farbgeber": {
       "component": "c3-flo/farbgeber"
     },
@@ -20,6 +23,9 @@
     },
     "station-announcer": {
       "component": "station-announcer/StationAnnouncer"
+    },
+    "visual-paging": {
+      "component": "c3-flo/VisualPaging"
     }
   },
   "connections": [
@@ -59,12 +65,42 @@
     },
     {
       "src": {
+        "process": "launch-announcer",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "visual-paging",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
         "process": "clock",
         "port": "out"
       },
       "tgt": {
         "process": "station-announcer",
         "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "station-announcer",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "visual-paging",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "demodisplay",
+        "port": "open"
       }
     },
     {
