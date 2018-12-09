@@ -11,6 +11,9 @@
     },
     "clock": {
       "component": "c3-flo/Clock"
+    },
+    "farbgeber": {
+      "component": "c3-flo/farbgeber"
     }
   },
   "connections": [
@@ -36,6 +39,13 @@
       "tgt": {
         "process": "airportweather",
         "port": "fetch"
+      }
+    },
+    {
+      "data": true,
+      "tgt": {
+        "process": "farbgeber",
+        "port": "in"
       }
     }
   ]
