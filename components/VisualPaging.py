@@ -15,6 +15,7 @@ class VisualPaging(msgflo.Participant):
       ],
       'outports': [
         { 'id': 'out', 'type': 'string' },
+        { 'id': 'original', 'type': 'string' },
       ],
     }
     msgflo.Participant.__init__(self, d, role)
@@ -23,6 +24,7 @@ class VisualPaging(msgflo.Participant):
     baseUrl = os.environ['INFOSCREENS_URL']
     url = '%s/visual-paging/?%s' % (baseUrl, urllib.parse.quote(msg.data.encode('utf-8')))
     self.send('out', url)
+    self.send('original', msg.data)
     self.ack(msg)
 
 if __name__ == '__main__':
