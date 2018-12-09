@@ -17,6 +17,9 @@
     },
     "launch-announcer": {
       "component": "c3-flo/LaunchAnnouncer"
+    },
+    "station-announcer": {
+      "component": "station-announcer/StationAnnouncer"
     }
   },
   "connections": [
@@ -55,10 +58,27 @@
       }
     },
     {
+      "src": {
+        "process": "clock",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "station-announcer",
+        "port": "in"
+      }
+    },
+    {
       "data": true,
       "tgt": {
         "process": "farbgeber",
         "port": "in"
+      }
+    },
+    {
+      "data": 3,
+      "tgt": {
+        "process": "station-announcer",
+        "port": "probability"
       }
     }
   ]
