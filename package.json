@@ -4,7 +4,7 @@
   "description": "MsgFlo setup for programming c-base at 35C3",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint components/*.js",
+    "eslint": "eslint components/*.js openmct/*.js",
     "yamllint": "yamllint components/*.yml spec/*.yaml docker-compose.yml",
     "pretest": "npm run eslint && npm run yamllint",
     "test": "fbp-spec --address ws://localhost:3569 spec/",
