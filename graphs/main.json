@@ -14,6 +14,9 @@
     },
     "farbgeber": {
       "component": "c3-flo/farbgeber"
+    },
+    "launch-announcer": {
+      "component": "c3-flo/LaunchAnnouncer"
     }
   },
   "connections": [
@@ -39,6 +42,16 @@
       "tgt": {
         "process": "airportweather",
         "port": "fetch"
+      }
+    },
+    {
+      "src": {
+        "process": "clock",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "launch-announcer",
+        "port": "in"
       }
     },
     {
