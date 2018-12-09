@@ -38,7 +38,7 @@
     "eslint": "^5.10.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.14.0",
-    "fbp-spec": "^0.6.6",
+    "fbp-spec": "^0.5.2",
     "yaml-lint": "^1.2.4"
   }
 }
