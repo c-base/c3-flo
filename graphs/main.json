@@ -1,0 +1,22 @@
+{
+  "properties": {
+    "name": "main",
+    "environment": {
+      "type": "msgflo"
+    }
+  },
+  "processes": {
+    "airportweather": {
+      "component": "c-flo/AirportWeather"
+    }
+  },
+  "connections": [
+    {
+      "data": "EDDP",
+      "tgt": {
+        "process": "airportweather",
+        "port": "icao"
+      }
+    }
+  ]
+}
