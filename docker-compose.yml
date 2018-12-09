@@ -36,3 +36,9 @@ services:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     links:
       - mqtt
+  infoscreens:
+    image: cbase/infoscreens
+    ports:
+      - '80:80'
+    links:
+      - mqtt-infoscreens
