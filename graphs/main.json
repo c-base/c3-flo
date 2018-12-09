@@ -13,7 +13,7 @@
       "component": "c3-flo/Clock"
     },
     "farbgeber": {
-      "component": "c3-flo/farbgeber"
+      "component": "c3-flo/Farbgeber"
     },
     "launch-announcer": {
       "component": "c3-flo/LaunchAnnouncer"

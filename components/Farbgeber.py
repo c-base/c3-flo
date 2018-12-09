@@ -85,7 +85,7 @@ def generate_palette(base_saturation=1.0, base_luminance=0.4, hue_modifier=0.03,
 class Farbgeber(msgflo.Participant):
     def __init__(self, role):
         d = {
-            'component': 'c3-flo/farbgeber',
+            'component': 'c3-flo/Farbgeber',
             'label': 'Produce pleasing color palettes',
             'icon': 'tint',
             'inports': [
