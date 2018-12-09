@@ -2,13 +2,11 @@ version: '2'
 services:
   mqtt:
     image: toke/mosquitto
-    container_name: c-beam
     ports:
       - '1882:9001'
       - '1883:1883'
   msgflo:
     image: cbase/c3-flo
-    container_name: c3-flo
     environment:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     ports:
@@ -21,7 +19,6 @@ services:
       - ./spec:/var/c3-flo/spec
   msgflo_foreign:
     image: cbase/c3-flo
-    container_name: c3-flo-foreign
     environment:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     links:
@@ -31,7 +28,6 @@ services:
       - ./components:/var/c3-flo/components
   announcer:
     image: cbase/station-announcer
-    container_name: station-announcer
     environment:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     links:
@@ -42,3 +38,26 @@ services:
       - '80:80'
     links:
       - mqtt
+  influxdb:
+    image: influxdb
+    ports:
+      - '127.0.0.1:8086:8086'
+  couchdb:
+    image: couchdb
+    ports:
+      - '5984:5984'
+  openmct:
+    image: cbase/cbeam-telemetry-server
+    entrypoint: node config/c3-flo.js
+    environment:
+      MSGFLO_BROKER: 'mqtt://mqtt:1883'
+      INFLUX_HOST: influxdb
+    ports:
+      - '8080:8080'
+      - '8082:8082'
+    links:
+      - influxdb
+      - couchdb
+      - mqtt
+    volumes:
+      - ./openmct:/var/cbeam-telemetry-server/config
