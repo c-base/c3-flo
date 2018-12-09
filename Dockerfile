@@ -7,7 +7,7 @@ EXPOSE 3569
 ENV NPM_CONFIG_LOGLEVEL warn
 ENV NODE_ENV production
 
-RUN mkdir -p /var/c-flo
+RUN mkdir -p /var/c3-flo
 
 # Install msgflo-python, freetype, jpeg and z-libs used for Pillow (Python Imaging Library)
 RUN apt-get update && apt-get install -y \
@@ -23,15 +23,15 @@ WORKDIR /
 COPY ./requirements.pip /
 RUN pip3 install -r /requirements.pip ; rm -f /requirements.pip
 
-WORKDIR /var/c-flo
+WORKDIR /var/c3-flo
 
-COPY . /var/c-flo
+COPY . /var/c3-flo
 
 # Install MsgFlo and dependencies
 RUN npm install --only=production
 
 # Map the volumes
-VOLUME /var/c-flo/graphs /var/c-flo/components /var/c-flo/spec
+VOLUME /var/c3-flo/graphs /var/c3-flo/components /var/c3-flo/spec
 
 # Ensure that runtime is working
 HEALTHCHECK --interval=5m --timeout=3s \
