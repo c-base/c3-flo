@@ -1,5 +1,5 @@
 name: 'Fetching airport weather'
-topic: c-flo/AirportWeather
+topic: c3-flo/AirportWeather
 fixture:
   type: 'fbp'
   data: |
@@ -7,7 +7,7 @@ fixture:
     INPORT=airportweather.FETCH:FETCH
     OUTPORT=airportweather.TEMPERATURE:TEMPERATURE
     OUTPORT=airportweather.HUMIDITY:HUMIDITY
-    airportweather(c-flo/AirportWeather)
+    airportweather(c3-flo/AirportWeather)
 cases:
 -
   name: 'fetching LEJ weather'
