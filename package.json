@@ -4,7 +4,12 @@
   "description": "MsgFlo setup for programming c-base at 35C3",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "eslint": "eslint components/*.js",
+    "yamllint": "yamllint components/*.yml spec/*.yaml docker-compose.yml",
+    "pretest": "npm run eslint && npm run yamllint",
+    "test": "fbp-spec --address ws://localhost:3569 spec/*.yaml",
+    "start": "msgflo --componentdir components --graph graphs/main.json --runtime-id=63412117-ed0a-4e0d-afc6-f1e88b52f127 --ping-interval=600 --host=localhost --wait-timeout 1200",
+    "foreign": "msgflo-register --role demodisplay:components/infodisplay.yml"
   },
   "repository": {
     "type": "git",
@@ -20,5 +25,20 @@
   "bugs": {
     "url": "https://github.com/c-base/c3-flo/issues"
   },
-  "homepage": "https://github.com/c-base/c3-flo#readme"
+  "homepage": "https://github.com/c-base/c3-flo#readme",
+  "dependencies": {
+    "fbp-protocol-healthcheck": "^1.1.0",
+    "metar": "^1.0.0",
+    "metar-taf": "0.0.2",
+    "mqtt": "^2.18.8",
+    "msgflo": "^0.11.0",
+    "msgflo-nodejs": "^0.11.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.10.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "fbp-spec": "^0.6.6",
+    "yaml-lint": "^1.2.4"
+  }
 }
