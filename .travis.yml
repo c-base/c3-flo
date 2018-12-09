@@ -14,8 +14,11 @@ before_script:
 - until npx fbp-protocol-healthcheck ws://127.0.0.1:3569 || (( count++ >= 40 )); do echo "Waiting for runtime to be ready"; sleep 10; done
 - sleep 20
 deploy:
-  -
-    provider: script
-    script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}" && docker push "cbase/c3-flo:latest"
-    on:
-      branch: master
+- provider: script
+  script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}" && docker push "cbase/c3-flo:latest"
+  on:
+    branch: master
+env:
+  global:
+  - secure: HaySbng6PNh7FNMkI+075MtLIVQAsGCDPDozowO5qu+26B/bJ5P2xkt/vYpd5mLbImab31mF+DR6/dZQ6fFv/QUYCEW50rNz56sSND/VxqnvFjwMR9GG3AUcQ3Q0yFiEKvoRMfZg6hfHuOxkdijjdBCxTqtjpEJGV9/w0HDH4DKUZzVAVdTaBN5TbntyZZwSzXOpBGEYDX+95iN0UywoxEPyPUm5ab8nYiBgNPaZkBUk1KqAM8J5wKv5v+qIpeFXzcrxLR7qfSG0TdBO/mZA5JDFx+JURLueeiafHBt0PPdmEOmFS8kaIQ6Ruk3uc1jH3HiHLuQePC8IYCIUxKxr8FBD8/He00jb2Q+V+KCGmdZ0vpl/W4b0vf6mUBxc7fSBOnHOOmgVllniYROH2UBO92qNUM00XXqjYx8YacCgsbp6TLpWy0hLxnbN6tspdJsiCTRZKPKiy6IsjWLlKZUq+Fc/nLoVfjkq9wIFYd09cVfEIFvG5Me8pCiwEtO6zr+YGhhRK78qQLXCeabNEn/oXTOjrIfh+BQXefkCHZGYdfjHtYYF63DrHQp5KuFk1I+X5r62kz+ycp/M2alNYSZGk42YAa/x1+PNRBTHIg7ypgHJhaDfqU7TVSYzLw+fC7PjmIdXvsVIKReU9wqP3ZNWnrVfQ9+Qy92BJo748QmZMrQ=
+  - secure: PD4lFyre0PK7Z4xk1MRXqhZwaMXnAs4GaD7m9qHt83YXVA31LhvUo3Jc0uJAJ97GO50u/ppR+gq5Lsmkn2RSVfMHXVoO8emNt/HMd8FIB3jNqm94i/sVHPOWw3g6aM+z73MY1hUI5wG0WAtLXDs39hFqz6fZMaDutToU+4pSjt3qeR4IbyHbUm9uylKBi+AmTFKfgWXvijCm0s3pa6/wk5G5Fx+kcV4PQg8y6AR8GP+VX4EZXmZE9UecshGWJwk8uv0rZHJaM4Rr3TxlqXPDziAHYQCEK+VPoj6LCTGxl8T1PyKE/ZjfBBYQjY4Q64Bt/3RPxY2P7ThkfJLfqCpdJPguso9zezwgfcGzR3yw/PFaqqm8ySqnpVqy2WqOCGemOTN7uDEQr08A858Yao8obzSm7fvtNCSdZAcPVMF1fborKhWYv3igN7uxggAlUn4v8D170gTH/veCpoDqO3d762wNxgNkXzT8dtz9PWoBZwkhkqMayigFRw45wkmZ47/+R2Rf/S2MsbvS/QB7TdDofhJA4zPqZwehWXpXl6v2Gpd4VntCvH234n32r56dtr9QRmizfamCo2cI6Xik4rdOu2ne2z1aGCt1OLV10xUMqabEdFzMpFJbgQyebFvY2iTeXOzELvLqa/MtlF+KY5kHh1M3OiNrt8qlVWynWZa1T00=
