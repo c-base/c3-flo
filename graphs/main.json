@@ -29,7 +29,7 @@
       }
     },
     {
-      "tgt": {
+      "src": {
         "process": "clock",
         "port": "out"
       },
