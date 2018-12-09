@@ -12,6 +12,9 @@ before_script:
 - docker-compose ps
 # Wait for runtime to be ready
 - until npx fbp-protocol-healthcheck ws://127.0.0.1:3569 || (( count++ >= 40 )); do echo "Waiting for runtime to be ready"; sleep 10; done
+script:
+- npx fbp-protocol-healthcheck ws://127.0.0.1:3569
+- npm test
 deploy:
 - provider: script
   script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}" && docker push "cbase/c3-flo:latest"
