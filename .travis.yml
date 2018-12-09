@@ -6,6 +6,7 @@ services:
 before_script:
 # Build the c3-flo image
 - docker build -t cbase/c3-flo:${TRAVIS_BUILD_NUMBER} .
+- docker tag cbase/c3-flo:${TRAVIS_BUILD_NUMBER} cbase/c3-flo:latest
 # Start the whole service
 - docker-compose up -d
 - docker-compose ps
@@ -15,6 +16,6 @@ before_script:
 deploy:
   -
     provider: script
-    script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}"
+    script: docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD" && docker push "cbase/c3-flo:${TRAVIS_BUILD_NUMBER}" && docker push "cbase/c3-flo:latest"
     on:
       branch: master
