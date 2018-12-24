@@ -1,4 +1,5 @@
 const msgflo = require('msgflo-nodejs');
+const color = require('color');
 const mclighting = require('../lib/mclighting');
 
 module.exports = (client, role) => {
@@ -12,15 +13,13 @@ module.exports = (client, role) => {
         type: 'string',
       },
       {
-        id: 'color',
+        id: 'command',
         type: 'string',
       },
-      /*
       {
-        id: 'mode',
-        type: 'int',
+        id: 'palette',
+        type: 'object',
       },
-      */
     ],
     outports: [
       {
@@ -45,8 +44,19 @@ module.exports = (client, role) => {
       callback('out', null, indata);
       return;
     }
-    if (inport === 'color') {
+    if (inport === 'command') {
       mcClient(indata)
+        .then((result) => {
+          callback('out', null, result);
+        }, (error) => {
+          callback('error', error);
+        });
+      return;
+    }
+    if (inport === 'palette') {
+      // TODO: Make variant configurable
+      const value = color.rgb(indata.v1);
+      mcClient(value.hex())
         .then((result) => {
           callback('out', null, result);
         }, (error) => {

@@ -153,6 +153,16 @@
       }
     },
     {
+      "src": {
+        "process": "farbgeber",
+        "port": "palette"
+      },
+      "tgt": {
+        "process": "rpnw1",
+        "port": "palette"
+      }
+    },
+    {
       "data": true,
       "tgt": {
         "process": "farbgeber",
