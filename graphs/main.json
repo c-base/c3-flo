@@ -36,16 +36,25 @@
     "west-display": {
       "component": "c-base/infodisplay"
     },
-    "rpnw1": {
-      "component": "c3-flo/McLighting"
+    "roof-panels": {
+      "component": "c3-flo/McLightings"
     }
   },
   "connections": [
     {
-      "data": "ws://192.168.0.62:81/",
+      "data": [
+        "ws://rpne1.35c3.c-base.org:81/",
+        "ws://rpne2.35c3.c-base.org:81/",
+        "ws://rpse1.35c3.c-base.org:81/",
+        "ws://rpse2.35c3.c-base.org:81/",
+        "ws://rpsw1.35c3.c-base.org:81/",
+        "ws://rpsw2.35c3.c-base.org:81/",
+        "ws://rpnw1.35c3.c-base.org:81/",
+        "ws://rpnw2.35c3.c-base.org:81/"
+      ],
       "tgt": {
-        "process": "rpnw1",
-        "port": "address"
+        "process": "roof-panels",
+        "port": "addresses"
       }
     },
     {
@@ -158,7 +167,7 @@
         "port": "palette"
       },
       "tgt": {
-        "process": "rpnw1",
+        "process": "roof-panels",
         "port": "palette"
       }
     },
