@@ -35,9 +35,19 @@
     },
     "west-display": {
       "component": "c-base/infodisplay"
+    },
+    "rpnw1": {
+      "component": "c3-flo/McLighting"
     }
   },
   "connections": [
+    {
+      "data": "ws://192.168.0.62:81/",
+      "tgt": {
+        "process": "rpnw1",
+        "port": "address"
+      }
+    },
     {
       "data": "EDDP",
       "tgt": {
