@@ -50,8 +50,7 @@
         "ws://rpsw1.35c3.c-base.org:81/",
         "ws://rpsw2.35c3.c-base.org:81/",
         "ws://rpnw1.35c3.c-base.org:81/",
-        "ws://rpnw2.35c3.c-base.org:81/",
-        "ws://cascha-scooter.35c3.c-base.org:81/"
+        "ws://rpnw2.35c3.c-base.org:81/"
       ],
       "tgt": {
         "process": "roof-panels",
