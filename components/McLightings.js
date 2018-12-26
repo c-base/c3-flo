@@ -34,7 +34,9 @@ module.exports = (client, role) => {
   };
 
   let mcClients;
+  let lastSent = null;
   const process = (inport, indata, callback) => {
+    const now = new Date();
     if (inport !== 'addresses' && !mcClients) {
       callback('error', new Error('Addresses must be provided first'));
       return;
@@ -45,6 +47,7 @@ module.exports = (client, role) => {
       return;
     }
     if (inport === 'command') {
+      lastSent = now;
       Promise.all(mcClients.map(mcClient => mcClient(indata)))
         .then((result) => {
           callback('out', null, result);
@@ -54,6 +57,12 @@ module.exports = (client, role) => {
       return;
     }
     if (inport === 'palette') {
+      if (lastSent && (now.getTime() - lastSent.getTime()) < 10000) {
+        // Throttle farbgeber to allow animations to run more smoothly
+        callback('out', null, 'SKIPPED');
+        return;
+      }
+      lastSent = now;
       // TODO: Make variant configurable
       const value = color.rgb(indata.v1);
       Promise.all(mcClients.map(mcClient => mcClient(value.hex())))
