@@ -42,6 +42,7 @@ services:
       - mqtt
     volumes:
       - ./videos:/var/infoscreens/videos
+      - ./pictures:/var/infoscreens/pictures
   influxdb:
     image: influxdb
     ports:
