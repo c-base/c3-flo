@@ -36,6 +36,12 @@
     "west-display": {
       "component": "c-base/infodisplay"
     },
+    "mainhall-display": {
+      "component": "c-base/infodisplay"
+    },
+    "c-lab-display": {
+      "component": "c-base/infodisplay"
+    },
     "roof-panels": {
       "component": "c3-flo/McLightings"
     }
@@ -158,6 +164,26 @@
       },
       "tgt": {
         "process": "west-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "mainhall-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "c-lab-display",
         "port": "open"
       }
     },
