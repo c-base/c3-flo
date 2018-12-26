@@ -188,16 +188,6 @@
       }
     },
     {
-      "src": {
-        "process": "farbgeber",
-        "port": "palette"
-      },
-      "tgt": {
-        "process": "roof-panels",
-        "port": "palette"
-      }
-    },
-    {
       "data": true,
       "tgt": {
         "process": "farbgeber",
