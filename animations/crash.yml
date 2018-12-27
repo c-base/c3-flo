@@ -14,7 +14,7 @@ tracks:
         - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&station'
   - name: upper roof panels
     commands:
-      47:
+      49:
         - '/28'
         - '%83'
         - '?248'
@@ -30,7 +30,7 @@ tracks:
         - '%0'
   - name: lower roof panels
     commands:
-      49:
+      51:
         - '/28'
         - '%83'
         - '?248'
