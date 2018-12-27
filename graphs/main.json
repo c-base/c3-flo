@@ -118,6 +118,36 @@
     },
     {
       "src": {
+        "process": "c-blinken",
+        "port": "infodisplays"
+      },
+      "tgt": {
+        "process": "east-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "c-blinken",
+        "port": "infodisplays"
+      },
+      "tgt": {
+        "process": "south-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "c-blinken",
+        "port": "infodisplays"
+      },
+      "tgt": {
+        "process": "west-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
         "process": "clock",
         "port": "out"
       },
