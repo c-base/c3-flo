@@ -12,9 +12,9 @@ tracks:
         - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&alarm'
   - name: upper roof panels
     commands:
-      13:
+      8:
         - '=off'
   - name: lower roof panels
     commands:
-      14:
+      8:
         - '=off'
