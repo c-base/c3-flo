@@ -8,7 +8,7 @@ tracks:
     commands:
       0:
         - 'http://c-flo.cbrp3.c-base.org/35c3-video?c-rash'
-      60:
+      52:
         - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&alarm'
       167:
         - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&station'
