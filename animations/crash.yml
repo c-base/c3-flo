@@ -2,7 +2,7 @@ total_time: 16
 tracks:
   - name: soundtrack
     commands:
-      0:
+      8:
         - play
   - name: infodisplays
     commands:
