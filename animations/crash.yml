@@ -1,4 +1,4 @@
-total_time: 16
+total_time: 167
 tracks:
   - name: soundtrack
     commands:
@@ -8,13 +8,35 @@ tracks:
     commands:
       0:
         - 'http://c-flo.cbrp3.c-base.org/35c3-video?c-rash'
-      10:
+      60:
         - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&alarm'
+      167:
+        - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&station'
   - name: upper roof panels
     commands:
-      8:
-        - '=off'
+      33:
+        - '/28'
+        - '%255'
+        - '?209'
+        - '#999999'
+      60:
+        - '/15'
+        - '%83'
+        - '?248'
+        - '#FF0000'
+      165:
+        - '%0'
   - name: lower roof panels
     commands:
-      8:
-        - '=off'
+      35:
+        - '/28'
+        - '%255'
+        - '?209'
+        - '#999999'
+      62:
+        - '/15'
+        - '%83'
+        - '?248'
+        - '#FF0000'
+      167:
+        - '%0'
