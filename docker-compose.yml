@@ -34,6 +34,14 @@ services:
       MSGFLO_BROKER: 'mqtt://mqtt:1883'
     links:
       - mqtt
+  crash:
+    image: cbase/c-blinken
+    environment:
+      MSGFLO_BROKER: 'mqtt://mqtt:1883'
+    links:
+      - mqtt
+    volumes:
+      - ./animations:/var/c-blinken/animations
   infoscreens:
     image: cbase/infoscreens
     ports:

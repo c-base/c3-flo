@@ -1,0 +1,20 @@
+total_time: 16
+tracks:
+  - name: soundtrack
+    commands:
+      0:
+        - play
+  - name: infodisplays
+    commands:
+      0:
+        - 'http://c-flo.cbrp3.c-base.org/35c3-video?c-rash'
+      10:
+        - 'http://c-flo.cbrp3.c-base.org/countdown?__END__&Crash%20alarm&alarm'
+  - name: upper roof panels
+    commands:
+      13:
+        - '=off'
+  - name: lower roof panels
+    commands:
+      14:
+        - '=off'
