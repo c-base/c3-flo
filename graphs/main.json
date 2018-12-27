@@ -27,6 +27,9 @@
     "station-announcer": {
       "component": "station-announcer/StationAnnouncer"
     },
+    "start-crash": {
+      "component": c3-flo/StartCrash"
+    },
     "visual-paging": {
       "component": "c3-flo/VisualPaging"
     },
@@ -87,6 +90,16 @@
       "src": {
         "process": "c-rash",
         "port": "pressed"
+      },
+      "tgt": {
+        "process": "start-crash",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "start-crash",
+        "port": "out"
       },
       "tgt": {
         "process": "c-blinken",
