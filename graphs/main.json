@@ -9,6 +9,12 @@
     "airportweather": {
       "component": "c3-flo/AirportWeather"
     },
+    "c-blinken": {
+      "component": "c-blinken/Crash"
+    },
+    "c-rash": {
+      "component": "c-base/crashbutton"
+    },
     "clock": {
       "component": "c3-flo/Clock"
     },
@@ -75,6 +81,16 @@
       "tgt": {
         "process": "clock",
         "port": "start"
+      }
+    },
+    {
+      "src": {
+        "process": "c-rash",
+        "port": "pressed"
+      },
+      "tgt": {
+        "process": "c-blinken",
+        "port": "run"
       }
     },
     {

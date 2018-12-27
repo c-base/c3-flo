@@ -1,0 +1,7 @@
+component: c-base/crashbutton
+icon: 'toggle-on'
+inports: {}
+outports:
+  pressed:
+    type: boolean
+    queue: '#ROLE/pressed'
