@@ -108,6 +108,16 @@
     },
     {
       "src": {
+        "process": "c-blinken",
+        "port": "infodisplays"
+      },
+      "tgt": {
+        "process": "north-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
         "process": "clock",
         "port": "out"
       },
