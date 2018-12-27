@@ -28,7 +28,7 @@
       "component": "station-announcer/StationAnnouncer"
     },
     "start-crash": {
-      "component": c3-flo/StartCrash"
+      "component": "c3-flo/StartCrash"
     },
     "visual-paging": {
       "component": "c3-flo/VisualPaging"
