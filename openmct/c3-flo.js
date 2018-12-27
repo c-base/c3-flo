@@ -43,6 +43,16 @@ station.addMeasurement('announcement', 'visual-paging', [
 ], {
   topic: 'visual-paging/original',
 });
+station.addMeasurement('crash', 'crash', [
+  {
+    units: 'crashes',
+    format: 'boolean',
+    min: 0,
+    max: 1,
+  },
+], {
+  topic: 'c-rash/pressed',
+});
 
 // Start the server
 const server = new app.Server({
