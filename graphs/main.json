@@ -103,7 +103,7 @@
       },
       "tgt": {
         "process": "c_out",
-        "port": "play"
+        "port": "playsound"
       }
     },
     {
