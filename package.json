@@ -9,7 +9,7 @@
     "pretest": "npm run eslint && npm run yamllint",
     "test": "fbp-spec --address ws://localhost:3569 spec/",
     "start": "msgflo --componentdir components --graph graphs/main.json --runtime-id=63412117-ed0a-4e0d-afc6-f1e88b52f127 --ping-interval=600 --host=localhost --wait-timeout 1200",
-    "foreign": "msgflo-register --role north-display:components/infodisplay.yml --role east-display:components/infodisplay.yml --role south-display:components/infodisplay.yml --role west-display:components/infodisplay.yml --role mainhall-display:components/infodisplay.yml --role c-lab-display:components/infodisplay.yml --role weltenbau-display:components/infodisplay.yml --role soundlab-display:components/infodisplay.yml --role c-rash:components/crashbutton.yml c_out:components/c_out.yml"
+    "foreign": "msgflo-register --role north-display:components/infodisplay.yml --role east-display:components/infodisplay.yml --role south-display:components/infodisplay.yml --role west-display:components/infodisplay.yml --role mainhall-display:components/infodisplay.yml --role c-lab-display:components/infodisplay.yml --role weltenbau-display:components/infodisplay.yml --role soundlab-display:components/infodisplay.yml --role c-rash:components/crashbutton.yml --role c_out:components/c_out.yml"
   },
   "repository": {
     "type": "git",
