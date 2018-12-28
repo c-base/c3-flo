@@ -2,8 +2,7 @@ component: c-base/c_out
 source: 'https://github.com/c-base/c_out'
 label: Generate sounds
 icon: comment
-inports: {}
-outports:
+inports:
   playsound:
     queue: c_out/play
     type: string
@@ -16,3 +15,4 @@ outports:
   saytext_en:
     queue: c_out/announce_en
     type: string
+outports: {}
