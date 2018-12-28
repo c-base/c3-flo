@@ -202,13 +202,23 @@
         "port": "out"
       },
       "tgt": {
+        "process": "c-blinken",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "c-blinken",
+        "port": "out"
+      },
+      "tgt": {
         "process": "north-display",
         "port": "open"
       }
     },
     {
       "src": {
-        "process": "visual-paging",
+        "process": "c-blinken",
         "port": "out"
       },
       "tgt": {
@@ -218,7 +228,7 @@
     },
     {
       "src": {
-        "process": "visual-paging",
+        "process": "c-blinken",
         "port": "out"
       },
       "tgt": {
@@ -228,7 +238,7 @@
     },
     {
       "src": {
-        "process": "visual-paging",
+        "process": "c-blinken",
         "port": "out"
       },
       "tgt": {
