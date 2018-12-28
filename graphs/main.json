@@ -12,6 +12,9 @@
     "c-blinken": {
       "component": "c-blinken/Crash"
     },
+    "c_out": {
+      "component": "c-base/c_out"
+    },
     "c-rash": {
       "component": "c-base/crashbutton"
     },
@@ -104,6 +107,16 @@
       "tgt": {
         "process": "c-blinken",
         "port": "run"
+      }
+    },
+    {
+      "src": {
+        "process": "c-blinken",
+        "port": "soundtrack"
+      },
+      "tgt": {
+        "process": "c_out",
+        "port": "play"
       }
     },
     {

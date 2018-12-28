@@ -3,7 +3,7 @@ tracks:
   - name: soundtrack
     commands:
       8:
-        - play
+        - crash
   - name: infodisplays
     commands:
       0:
