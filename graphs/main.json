@@ -54,6 +54,12 @@
     "c-lab-display": {
       "component": "c-base/infodisplay"
     },
+    "weltenbau-display": {
+      "component": "c-base/infodisplay"
+    },
+    "soundlab-display": {
+      "component": "c-base/infodisplay"
+    },
     "roof-panels": {
       "component": "c3-flo/McLightings"
     }
@@ -266,6 +272,26 @@
       },
       "tgt": {
         "process": "c-lab-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "weltenbau-display",
+        "port": "open"
+      }
+    },
+    {
+      "src": {
+        "process": "visual-paging",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "soundlab-display",
         "port": "open"
       }
     },
