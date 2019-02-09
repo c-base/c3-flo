@@ -68,16 +68,16 @@ const Participant = (client, role) => {
         type: 'string',
         hidden: false,
       },
-    {
-      id: 'error',
-      type: 'object',
-      hidden: false,
-    },
-    {
-      id: 'skipped',
-      type: 'object',
-      hidden: true,
-    },
+      {
+        id: 'error',
+        type: 'object',
+        hidden: false,
+      },
+      {
+        id: 'skipped',
+        type: 'object',
+        hidden: true,
+      },
     ],
   };
   const process = (inport, indata, callback) => {
