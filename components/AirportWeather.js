@@ -1,27 +1,22 @@
 const msgflo = require('msgflo-nodejs');
-const { MetarFetcher } = require('metar-taf');
-const metarParser = require('metar');
+const adds = require('adds');
 
-const metarFetcher = new MetarFetcher();
+const getWeather = (station, callback) => adds('metars', {
+  stationString: station,
+  hoursBeforeNow: 1,
+})
+  .then(data => callback(null, data[0]),
+    err => callback(err));
 
-function getWeather(station, callback) {
-  metarFetcher.getData(station).then((data) => {
-    const clean = data.split('\n')[1];
-    const parsed = metarParser(clean);
-    parsed.metar = clean;
-    return callback(null, parsed);
-  }, err => callback(err));
-}
-
-function getHumidity(weather) {
-  const Tc = weather.temperature;
-  const Tdc = weather.dewpoint;
+const getHumidity = (weather) => {
+  const Tc = weather.temp_c;
+  const Tdc = weather.dewpoint_c;
   const Es = 6.11 * (10.0 ** (7.5 * Tc / (237.7 + Tc)));
   const E = 6.11 * (10.0 ** (7.5 * Tdc / (237.7 + Tdc)));
   return (E / Es) * 100;
-}
+};
 
-function Participant(client, role) {
+const Participant = (client, role) => {
   let station = null;
   let lastMetar = null;
   let participant;
@@ -73,32 +68,32 @@ function Participant(client, role) {
         type: 'string',
         hidden: false,
       },
-      {
-        id: 'error',
-        type: 'object',
-        hidden: false,
-      },
-      {
-        id: 'skipped',
-        type: 'object',
-        hidden: true,
-      },
+    {
+      id: 'error',
+      type: 'object',
+      hidden: false,
+    },
+    {
+      id: 'skipped',
+      type: 'object',
+      hidden: true,
+    },
     ],
   };
-  function process(inport, indata, callback) {
-    if (inport === 'temperature' || inport === 'humidity' || inport === 'pressure' || inport === 'metar') {
+  const process = (inport, indata, callback) => {
+    if (['temperature', 'humidity', 'pressure', 'metar'].includes(inport)) {
       // Forward to outport
       callback(inport, null, indata);
       return;
     }
-    if (inport !== 'icao' && inport !== 'fetch') {
+    if (!['icao', 'fetch'].includes(inport)) {
       callback('error', new Error('Unknown port name'));
       return;
     }
     if (inport === 'icao') {
       station = indata;
     }
-    if (inport === 'fetch' && station === null) {
+    if ((inport === 'fetch') && (station === null)) {
       callback('error', new Error('No weather station provided'));
       return;
     }
@@ -107,25 +102,26 @@ function Participant(client, role) {
         callback('error', err);
         return;
       }
-      if (weather.metar === lastMetar) {
+      if (weather.raw_text === lastMetar) {
         // Send only when there is new METAR
         callback('skipped', null, weather);
         return;
       }
-      if (weather.altimeterInHpa < 500) {
+      if (weather.sea_level_pressure_mb < 500) {
         // Faulty reading, skip
         callback('skipped', null, weather);
         return;
       }
-      participant.send('pressure', weather.altimeterInHpa);
+      participant.send('pressure', weather.sea_level_pressure_mb);
       participant.send('humidity', getHumidity(weather));
-      participant.send('metar', weather.metar);
-      lastMetar = weather.metar;
-      callback('temperature', null, weather.temperature);
+      participant.send('metar', weather.raw_text);
+      lastMetar = weather.raw_text;
+      callback('temperature', null, weather.temp_c);
     });
-  }
+  };
+
   participant = new msgflo.participant.Participant(client, definition, process, role);
   return participant;
-}
+};
 
 module.exports = Participant;
