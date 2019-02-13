@@ -31,7 +31,7 @@
     "color": "^3.1.0",
     "fbp-protocol-healthcheck": "^1.1.0",
     "mqtt": "^2.18.8",
-    "msgflo": "^0.11.0",
+    "msgflo": "^0.12.0",
     "msgflo-nodejs": "^0.11.1",
     "ws": "^6.1.2"
   },
