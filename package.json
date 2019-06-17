@@ -33,7 +33,7 @@
     "mqtt": "^2.18.8",
     "msgflo": "^0.12.0",
     "msgflo-nodejs": "^0.11.1",
-    "ws": "^7.0.0"
+    "ws": "^7.0.1"
   },
   "devDependencies": {
     "eslint": "^5.10.0",
